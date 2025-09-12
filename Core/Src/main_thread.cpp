@@ -29,21 +29,6 @@ static uint8_t uart5_rx_buf[512];
 extern "C" void main_thread(void *) {
   using namespace halx::peripheral;
 
-  HAL_UART_DeInit(&huart1);
-  HAL_UART_DeInit(&huart2);
-  HAL_UART_DeInit(&huart3);
-  HAL_UART_DeInit(&huart5);
-
-  huart1.Init.BaudRate = 1000000;
-  huart2.Init.BaudRate = 115200;
-  huart3.Init.BaudRate = 115200;
-  huart5.Init.BaudRate = 115200;
-
-  HAL_UART_Init(&huart1);
-  HAL_UART_Init(&huart2);
-  HAL_UART_Init(&huart3);
-  HAL_UART_Init(&huart5);
-
   Uart<&huart1, UartTxDma, UartRxDma> uart1{uart1_tx_buf, uart1_rx_buf}; // serial servo
   Uart<&huart2, UartTxDma, UartRxDma> uart2{uart2_tx_buf, uart2_rx_buf}; // rs485
   Uart<&huart3, UartTxDma, UartRxDma> uart3{uart3_tx_buf, uart3_rx_buf}; // stlink
