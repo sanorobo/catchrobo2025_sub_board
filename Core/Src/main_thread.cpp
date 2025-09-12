@@ -50,7 +50,7 @@ extern "C" void main_thread(void *) {
 
   enable_stdout(uart3);
 
-  // ここより上はbaud rate以外触らない
+  // ここより上は触らない
 
   using namespace halx::driver;
 
